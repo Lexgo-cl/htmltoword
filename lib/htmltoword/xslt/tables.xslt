@@ -156,7 +156,10 @@
         <w:gridSpan w:val="{@colspan}"/>
       </xsl:if>
       <xsl:if test="@rowspan &gt; 1">
-        <w:vMerge w:val="{@rowspan}"/>
+        <w:vMerge w:val="restart"/>
+      </xsl:if>
+      <xsl:if test="@vmerge">
+        <w:vMerge/>
       </xsl:if>
     </w:tcPr>
   </xsl:template>

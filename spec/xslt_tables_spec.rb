@@ -796,7 +796,7 @@ describe "XSLT for tables" do
     <w:tr>
       <w:tc>
         <w:tcPr>
-          <w:vMerge w:val="4"/>
+          <w:vMerge w:val="restart"/>
         </w:tcPr>
         <w:p>
           <w:r>

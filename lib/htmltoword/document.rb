@@ -93,6 +93,7 @@ module Htmltoword
       html = '<body></body>' if html.nil? || html.empty?
       original_source = Nokogiri::HTML(html.gsub(/>\s+</, '><'))
       source = xslt(stylesheet_name: 'cleanup').transform(original_source)
+      transform_rowspan(source)
       transform_and_replace(source, xslt_path('numbering'), Document.numbering_xml_file)
       transform_and_replace(source, xslt_path('relations'), Document.relations_xml_file)
       transform_doc_xml(source, extras)
@@ -112,6 +113,26 @@ module Htmltoword
       content = stylesheet.apply_to(source)
       content.gsub!(/\s*xmlns:(\w+)="(.*?)\s*"/, '') if remove_ns
       @replaceable_files[file] = content
+    end
+
+    def transform_rowspan(source)
+      source.xpath('//td[@rowspan > 1]').each do |e|
+        cols = 0
+        prev = e
+        cols += prev.attributes['colspan'] ? prev.attributes['colspan'].value.to_i : 1 while(prev = prev.previous)
+        parent = e.parent
+        (e.attributes['rowspan'].value.to_i - 1).times do
+          n = parent.next
+          n.children.inject(0) do |sum, ch|
+            if sum == cols
+              ch.add_previous_sibling "<td vmerge colspan=\"#{e.attributes['colspan'] ? e.attributes['colspan'].value : 1}\"></td>"
+              break
+            end
+            sum += ch.attributes['colspan'] ? ch.attributes['colspan'].value.to_i : 1
+            sum
+          end
+        end
+      end
     end
 
     #generates an array of hashes with filename and full url
