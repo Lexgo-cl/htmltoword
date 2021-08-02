@@ -831,6 +831,7 @@ describe "XSLT for tables" do
       <w:tc>
         <w:tcPr>
           <w:vMerge w:val="restart"/>
+          <w:vAlign w:val="center"/>
         </w:tcPr>
         <w:p>
           <w:r>

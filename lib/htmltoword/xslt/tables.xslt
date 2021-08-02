@@ -157,6 +157,7 @@
       </xsl:if>
       <xsl:if test="@rowspan &gt; 1">
         <w:vMerge w:val="restart"/>
+        <w:vAlign w:val="center"/>
       </xsl:if>
       <xsl:if test="@vmerge">
         <w:vMerge/>
