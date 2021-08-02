@@ -771,13 +771,22 @@ describe "XSLT for tables" do
     <table>
       <tbody>
         <tr>
-          <td rowspan='4'>Hello</td>
+          <td rowspan='3'>Left x3</td>
+          <td>Right 1</td>
+        </tr>
+        <tr>
+          <td>Right 2</td>
+        </tr>
+        <tr>
+          <td>Right 3</td>
         </tr>
       </tbody>
     </table>
   </body>
   </html>
     EOL
+    source = Nokogiri::HTML(html)
+    Htmltoword::Document.new('').rowspan_walkaround(source)
     expected_wordml = <<-EOL
   <w:tbl>
     <w:tblPr>
@@ -800,13 +809,53 @@ describe "XSLT for tables" do
         </w:tcPr>
         <w:p>
           <w:r>
-            <w:t xml:space="preserve">Hello</w:t>
+            <w:t xml:space="preserve">Left x3</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr/>
+        <w:p>
+          <w:r>
+            <w:t xml:space="preserve">Right 1</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:tc>
+        <w:tcPr>
+          <w:vMerge/>
+        </w:tcPr>
+        <w:p/>
+      </w:tc>
+      <w:tc>
+        <w:tcPr/>
+        <w:p>
+          <w:r>
+            <w:t xml:space="preserve">Right 2</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:tc>
+        <w:tcPr>
+          <w:vMerge/>
+        </w:tcPr>
+        <w:p/>
+      </w:tc>
+      <w:tc>
+        <w:tcPr/>
+        <w:p>
+          <w:r>
+            <w:t xml:space="preserve">Right 3</w:t>
           </w:r>
         </w:p>
       </w:tc>
     </w:tr>
   </w:tbl>
     EOL
-    compare_resulting_wordml_with_expected(html, expected_wordml.strip)
+    compare_resulting_wordml_with_expected(source.to_s, expected_wordml.strip)
   end
 end

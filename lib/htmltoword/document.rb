@@ -92,8 +92,8 @@ module Htmltoword
     def replace_files(html, extras = false)
       html = '<body></body>' if html.nil? || html.empty?
       original_source = Nokogiri::HTML(html.gsub(/>\s+</, '><'))
+      rowspan_walkaround(original_source)
       source = xslt(stylesheet_name: 'cleanup').transform(original_source)
-      transform_rowspan(source)
       transform_and_replace(source, xslt_path('numbering'), Document.numbering_xml_file)
       transform_and_replace(source, xslt_path('relations'), Document.relations_xml_file)
       transform_doc_xml(source, extras)
@@ -106,6 +106,31 @@ module Htmltoword
       transform_and_replace(transformed_source, document_xslt(extras), Document.doc_xml_file, extras)
     end
 
+    def rowspan_walkaround(source)
+      source.xpath('//td[@rowspan > 1]').each do |e|
+        cols = 0
+        parent = e.parent
+        tds = parent.children.to_a.filter{|ch| ch.name == 'td'}
+        tds.each do |ch|
+          cols += ch.attributes['colspan'] ? ch.attributes['colspan'].value.to_i : 1
+        end
+        trs = parent.parent.children.to_a.filter{|ch| ch.name == 'tr'}
+        e_colspan = e.attributes['colspan'] ? e.attributes['colspan'].value : 1
+        (e.attributes['rowspan'].value.to_i - 1).times do |i|
+          tr = trs[i+1]
+          tds = tr.children.to_a.filter{|ch| ch.name == 'td'}
+          tds.inject(0) do |sum, ch|
+            sum += ch.attributes['colspan'] ? ch.attributes['colspan'].value.to_i : 1
+            if sum == (cols - e_colspan)
+              ch.add_previous_sibling "<td vmerge colspan=\"#{e_colspan}\"></td>"
+              break
+            end
+            sum
+          end
+        end
+      end
+    end
+
     private
 
     def transform_and_replace(source, stylesheet_path, file, remove_ns = false)
@@ -113,26 +138,6 @@ module Htmltoword
       content = stylesheet.apply_to(source)
       content.gsub!(/\s*xmlns:(\w+)="(.*?)\s*"/, '') if remove_ns
       @replaceable_files[file] = content
-    end
-
-    def transform_rowspan(source)
-      source.xpath('//td[@rowspan > 1]').each do |e|
-        cols = 0
-        prev = e
-        cols += prev.attributes['colspan'] ? prev.attributes['colspan'].value.to_i : 1 while(prev = prev.previous)
-        parent = e.parent
-        (e.attributes['rowspan'].value.to_i - 1).times do
-          n = parent.next
-          n.children.inject(0) do |sum, ch|
-            if sum == cols
-              ch.add_previous_sibling "<td vmerge colspan=\"#{e.attributes['colspan'] ? e.attributes['colspan'].value : 1}\"></td>"
-              break
-            end
-            sum += ch.attributes['colspan'] ? ch.attributes['colspan'].value.to_i : 1
-            sum
-          end
-        end
-      end
     end
 
     #generates an array of hashes with filename and full url
