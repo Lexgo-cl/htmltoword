@@ -108,13 +108,10 @@ module Htmltoword
 
     def rowspan_walkaround(source)
       source.xpath('//td[@rowspan > 1]').each do |e|
-        cols = 0
         parent = e.parent
         tds = parent.children.to_a.filter{|ch| ch.name == 'td'}
-        tds.each do |ch|
-          cols += ch.attributes['colspan'] ? ch.attributes['colspan'].value.to_i : 1
-        end
         trs = parent.parent.children.to_a.filter{|ch| ch.name == 'tr'}
+        e_index = tds.index(e)
         e_colspan = e.attributes['colspan'] ? e.attributes['colspan'].value : 1
         parent_index = trs.index(parent)
         (e.attributes['rowspan'].value.to_i - 1).times do |i|
@@ -122,7 +119,7 @@ module Htmltoword
           tds = tr.children.to_a.filter{|ch| ch.name == 'td'}
           tds.inject(0) do |sum, ch|
             sum += ch.attributes['colspan'] ? ch.attributes['colspan'].value.to_i : 1
-            if sum == (cols - e_colspan)
+            if sum == (e_index + e_colspan)
               ch.add_previous_sibling "<td vmerge colspan=\"#{e_colspan}\"></td>"
               break
             end

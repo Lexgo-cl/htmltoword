@@ -776,12 +776,15 @@ describe "XSLT for tables" do
         </tr>
         <tr>
           <td rowspan='3'>Left x3</td>
+          <td>Center 1</td>
           <td>Right 1</td>
         </tr>
         <tr>
+          <td>Center 2</td>
           <td>Right 2</td>
         </tr>
         <tr>
+          <td>Center 3</td>
           <td>Right 3</td>
         </tr>
       </tbody>
@@ -839,6 +842,14 @@ describe "XSLT for tables" do
         <w:tcPr/>
         <w:p>
           <w:r>
+            <w:t xml:space="preserve">Center 1</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr/>
+        <w:p>
+          <w:r>
             <w:t xml:space="preserve">Right 1</w:t>
           </w:r>
         </w:p>
@@ -855,6 +866,14 @@ describe "XSLT for tables" do
         <w:tcPr/>
         <w:p>
           <w:r>
+            <w:t xml:space="preserve">Center 2</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr/>
+        <w:p>
+          <w:r>
             <w:t xml:space="preserve">Right 2</w:t>
           </w:r>
         </w:p>
@@ -866,6 +885,14 @@ describe "XSLT for tables" do
           <w:vMerge/>
         </w:tcPr>
         <w:p/>
+      </w:tc>
+      <w:tc>
+        <w:tcPr/>
+        <w:p>
+          <w:r>
+            <w:t xml:space="preserve">Center 3</w:t>
+          </w:r>
+        </w:p>
       </w:tc>
       <w:tc>
         <w:tcPr/>
