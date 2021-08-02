@@ -123,6 +123,9 @@ module Htmltoword
               ch.add_previous_sibling "<td vmerge colspan=\"#{e_colspan}\"></td>"
               break
             end
+            if tds.index(ch) == tds.length - 1
+              ch.add_next_sibling "<td vmerge colspan=\"#{e_colspan}\"></td>"
+            end
             sum
           end
         end
