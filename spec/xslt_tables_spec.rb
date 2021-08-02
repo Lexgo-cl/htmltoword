@@ -35,7 +35,9 @@ describe "XSLT for tables" do
     </w:tblPr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Hello</w:t>
@@ -92,7 +94,9 @@ describe "XSLT for tables" do
     </w:tblPr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Cell 1,1</w:t>
@@ -100,7 +104,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:tbl>
           <w:tblPr>
             <w:tblStyle w:val="TableGrid"/>
@@ -117,7 +123,9 @@ describe "XSLT for tables" do
           </w:tblPr>
           <w:tr>
             <w:tc>
-              <w:tcPr/>
+              <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
               <w:p>
                 <w:r>
                   <w:t xml:space="preserve">Nested</w:t>
@@ -125,7 +133,9 @@ describe "XSLT for tables" do
               </w:p>
             </w:tc>
             <w:tc>
-              <w:tcPr/>
+              <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
               <w:p>
                 <w:r>
                   <w:t xml:space="preserve">Table</w:t>
@@ -137,7 +147,9 @@ describe "XSLT for tables" do
         <w:p/>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Cell 1,3</w:t>
@@ -184,7 +196,9 @@ describe "XSLT for tables" do
     </w:tblPr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:rPr>
@@ -195,7 +209,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p/>
       </w:tc>
     </w:tr>
@@ -244,7 +260,9 @@ describe "XSLT for tables" do
     </w:tblPr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:rPr>
@@ -255,7 +273,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:rPr>
@@ -268,7 +288,9 @@ describe "XSLT for tables" do
     </w:tr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:rPr>
@@ -279,7 +301,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Cell 1,2</w:t>
@@ -330,7 +354,9 @@ describe "XSLT for tables" do
     </w:tblPr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:rPr>
@@ -341,7 +367,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:rPr>
@@ -354,7 +382,9 @@ describe "XSLT for tables" do
     </w:tr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:rPr>
@@ -365,7 +395,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Cell 1,2</w:t>
@@ -422,7 +454,9 @@ describe "XSLT for tables" do
     </w:tblPr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Hello</w:t>
@@ -430,7 +464,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">World</w:t>
@@ -460,7 +496,9 @@ describe "XSLT for tables" do
     </w:tblPr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Hello world</w:t>
@@ -468,7 +506,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Part 2</w:t>
@@ -523,7 +563,9 @@ describe "XSLT for tables" do
     </w:tblPr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Pre H1 </w:t>
@@ -544,7 +586,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Text </w:t>
@@ -573,7 +617,9 @@ describe "XSLT for tables" do
     </w:tr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Some content </w:t>
@@ -596,13 +642,17 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p/>
       </w:tc>
     </w:tr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Something </w:t>
@@ -630,7 +680,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Text inside div</w:t>
@@ -678,7 +730,9 @@ describe "XSLT for tables" do
     </w:tblPr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Sum total</w:t>
@@ -688,6 +742,7 @@ describe "XSLT for tables" do
       <w:tc>
         <w:tcPr>
           <w:shd w:val="clear" w:color="auto" w:fill="C3C3C3"/>
+          <w:vAlign w:val="center"/>
         </w:tcPr>
         <w:p>
           <w:r>
@@ -701,6 +756,7 @@ describe "XSLT for tables" do
             <w:bottom w:val="dashed" w:sz="6" w:space="0" w:color="red"/>
             <w:right w:val="single" w:sz="6" w:space="0" w:color="000000"/>
           </w:tcBorders>
+          <w:vAlign w:val="center"/>
         </w:tcPr>
         <w:p>
           <w:r>
@@ -749,6 +805,7 @@ describe "XSLT for tables" do
       <w:tc>
         <w:tcPr>
           <w:gridSpan w:val="4"/>
+          <w:vAlign w:val="center"/>
         </w:tcPr>
         <w:p>
           <w:r>
@@ -811,7 +868,9 @@ describe "XSLT for tables" do
     </w:tblPr>
     <w:tr>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Top Left</w:t>
@@ -819,7 +878,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Top Right</w:t>
@@ -840,7 +901,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Center 1</w:t>
@@ -848,7 +911,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Right 1</w:t>
@@ -860,11 +925,14 @@ describe "XSLT for tables" do
       <w:tc>
         <w:tcPr>
           <w:vMerge/>
+          <w:vAlign w:val="center"/>
         </w:tcPr>
         <w:p/>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Center 2</w:t>
@@ -872,7 +940,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Right 2</w:t>
@@ -884,11 +954,14 @@ describe "XSLT for tables" do
       <w:tc>
         <w:tcPr>
           <w:vMerge/>
+          <w:vAlign w:val="center"/>
         </w:tcPr>
         <w:p/>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Center 3</w:t>
@@ -896,7 +969,9 @@ describe "XSLT for tables" do
         </w:p>
       </w:tc>
       <w:tc>
-        <w:tcPr/>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Right 3</w:t>
