@@ -116,8 +116,9 @@ module Htmltoword
         end
         trs = parent.parent.children.to_a.filter{|ch| ch.name == 'tr'}
         e_colspan = e.attributes['colspan'] ? e.attributes['colspan'].value : 1
+        parent_index = trs.index(parent)
         (e.attributes['rowspan'].value.to_i - 1).times do |i|
-          tr = trs[i+1]
+          tr = trs[i+parent_index+1]
           tds = tr.children.to_a.filter{|ch| ch.name == 'td'}
           tds.inject(0) do |sum, ch|
             sum += ch.attributes['colspan'] ? ch.attributes['colspan'].value.to_i : 1

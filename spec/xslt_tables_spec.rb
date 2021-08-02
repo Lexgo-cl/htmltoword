@@ -771,6 +771,10 @@ describe "XSLT for tables" do
     <table>
       <tbody>
         <tr>
+          <td>Top Left</td>
+          <td>Top Right</td>
+        </tr>
+        <tr>
           <td rowspan='3'>Left x3</td>
           <td>Right 1</td>
         </tr>
@@ -802,6 +806,24 @@ describe "XSLT for tables" do
       </w:tblBorders>
       <w:tblLook w:val="0600" w:firstRow="0" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="1" w:noVBand="1"/>
     </w:tblPr>
+    <w:tr>
+      <w:tc>
+        <w:tcPr/>
+        <w:p>
+          <w:r>
+            <w:t xml:space="preserve">Top Left</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr/>
+        <w:p>
+          <w:r>
+            <w:t xml:space="preserve">Top Right</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
     <w:tr>
       <w:tc>
         <w:tcPr>
