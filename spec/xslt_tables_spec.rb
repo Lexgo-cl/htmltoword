@@ -878,6 +878,7 @@ describe "XSLT for tables" do
       <tbody>
         <tr>
           <td>Top Left</td>
+          <td>Top Center</td>
           <td>Top Right</td>
         </tr>
         <tr>
@@ -923,6 +924,16 @@ describe "XSLT for tables" do
         <w:p>
           <w:r>
             <w:t xml:space="preserve">Top Left</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
+        <w:p>
+          <w:r>
+            <w:t xml:space="preserve">Top Center</w:t>
           </w:r>
         </w:p>
       </w:tc>
