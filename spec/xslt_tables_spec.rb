@@ -819,6 +819,55 @@ describe "XSLT for tables" do
     compare_resulting_wordml_with_expected(html, expected_wordml.strip)
   end
 
+  it "transforms width into a tcW table cell property" do
+    html = <<-EOL
+  <!DOCTYPE html>
+  <html>
+  <head></head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td width='400'>Hello</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  </html>
+    EOL
+    expected_wordml = <<-EOL
+  <w:tbl>
+    <w:tblPr>
+      <w:tblStyle w:val="TableGrid"/>
+      <w:tblW w:w="5000" w:type="pct"/>
+      <w:tblBorders>
+        <w:top w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+        <w:left w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+        <w:bottom w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+        <w:right w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+        <w:insideH w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+        <w:insideV w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+      </w:tblBorders>
+      <w:tblLook w:val="0600" w:firstRow="0" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="1" w:noVBand="1"/>
+    </w:tblPr>
+    <w:tr>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:val="400"/>
+          <w:vAlign w:val="center"/>
+        </w:tcPr>
+        <w:p>
+          <w:r>
+            <w:t xml:space="preserve">Hello</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+  </w:tbl>
+    EOL
+    compare_resulting_wordml_with_expected(html, expected_wordml.strip)
+  end
+
   it "transforms a rowspan into a vMerge table cell property" do
     html = <<-EOL
   <!DOCTYPE html>

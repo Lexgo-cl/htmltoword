@@ -161,6 +161,9 @@
       <xsl:if test="@vmerge">
         <w:vMerge/>
       </xsl:if>
+      <xsl:if test="@width">
+        <w:tcW w:val="{@width}"/>
+      </xsl:if>
       <w:vAlign w:val="center"/>
     </w:tcPr>
   </xsl:template>
